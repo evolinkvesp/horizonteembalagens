@@ -1,49 +1,66 @@
-# Distribuidora Horizonte - Embalagens e Materiais de Limpeza
+# Horizonte Embalagens
 
-Este é o site oficial da **Distribuidora Horizonte**, uma plataforma moderna desenvolvida para apresentar soluções completas em embalagens e materiais de limpeza de alta qualidade.
+Site institucional (landing page) para a **Distribuidora Horizonte**, empresa de Santa Luzia (MG) que distribui embalagens, descartáveis e materiais de limpeza para empresas da região Central e Metropolitana de Belo Horizonte.
 
-## 🚀 Sobre o Projeto
+## O que é
 
-O site foi construído com foco em performance, experiência do usuário e responsividade, garantindo que clientes possam navegar por todo o catálogo de produtos de forma intuitiva em qualquer dispositivo.
+Projeto de site para cliente, desenvolvido pela **Evolink**. É uma página única (single page) com apresentação institucional, catálogo de categorias de produtos, seção "sobre a empresa" com histórico real do negócio, formulário de contato, mapa incorporado e botão flutuante de WhatsApp para geração de orçamentos. O objetivo é servir como cartão de visitas digital e canal de contato comercial, não uma loja com carrinho/checkout.
 
-### Principais Funcionalidades:
-- **Catálogo de Produtos:** Visualização detalhada de embalagens e produtos de limpeza.
-- **Interface Moderna:** Design clean e profissional utilizando Tailwind CSS e componentes Radix UI.
-- **Alta Performance:** Desenvolvido com Vite e React para carregamento instantâneo.
-- **Pronto para Produção:** Configurado para deployment otimizado no Vercel.
+## Funcionalidades
 
-## 🛠️ Tecnologias Utilizadas
+- **Hero** com chamada para orçamento via WhatsApp e link para o catálogo.
+- **Categorias em destaque**: Embalagens, Materiais de Limpeza, Equipamentos e Outros.
+- **Seção "Por que escolher a Horizonte"** com diferenciais (entrega, marcas, preço, atendimento).
+- **Sobre nós / História da empresa**, com texto institucional da distribuidora.
+- **Contato**: formulário (nome, empresa, e-mail, telefone, mensagem) e mapa do Google Maps incorporado com o endereço da loja.
+- **Parcerias**: grade com logos de marcas/fornecedores trabalhados pela distribuidora.
+- **Botão flutuante de WhatsApp** presente em toda a navegação, com número e mensagem pré-preenchidos.
+- Layout responsivo, com animações leves de entrada ao rolar a página (`useRevealOnScroll`).
 
-- **Frontend:** [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
-- **Bundler:** [Vite](https://vitejs.dev/)
-- **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
-- **Componentes:** [shadcn/ui](https://ui.shadcn.com/)
-- **Gerenciamento de Estado/Dados:** [TanStack Query](https://tanstack.com/query/latest)
+## Stack
 
-## 📦 Como Rodar Localmente
+- **React 18** + **TypeScript**
+- **Vite** (bundler e dev server)
+- **Tailwind CSS** para estilização
+- **shadcn/ui** + **Radix UI** para componentes de interface
+- **React Router DOM** para roteamento
+- **React Hook Form** + **Zod** para o formulário de contato
+- **TanStack Query** (React Query) incluído na stack base do template
+- **Vitest** + **Testing Library** para testes
+- Deploy configurado para **Vercel** (`vercel.json` com rewrite de rotas para SPA)
+- Projeto criado a partir do template [Lovable](https://lovable.dev) (base `vite_react_shadcn_ts`)
 
-1. Clone o repositório:
-   ```sh
-   git clone https://github.com/farmacia01/horizonteembalagens.git
-   ```
-2. Instale as dependências:
-   ```sh
-   npm install
-   ```
-3. Inicie o servidor de desenvolvimento:
-   ```sh
-   npm run dev
-   ```
+## Como rodar localmente
 
-## 🌐 Deployment
+Pré-requisito: Node.js instalado.
 
-O projeto está configurado para deploy imediato no **Vercel**. O arquivo `vercel.json` na raiz gerencia as rotas para garantir o funcionamento do roteamento SPA.
+```sh
+# Clonar o repositório
+git clone https://github.com/evolinkvesp/horizonteembalagens.git
+cd horizonteembalagens
 
----
+# Instalar dependências
+npm install
 
-## ✒️ Créditos
+# Rodar em modo desenvolvimento
+npm run dev
 
-Este projeto foi desenvolvido com a excelência e suporte da **Evolink**.
+# Build de produção
+npm run build
 
----
-*Distribuidora Horizonte: Sua parceira em soluções de embalagens e limpeza.*
+# Rodar os testes
+npm run test
+```
+
+O projeto também possui `bun.lockb`, então `bun install` / `bun dev` funcionam como alternativa ao npm.
+
+## Estrutura
+
+```
+src/
+  pages/Index.tsx          # página única com todas as seções do site
+  components/site/         # cabeçalho (SiteHeader) e botão de WhatsApp (WhatsAppFab)
+  components/ui/           # componentes shadcn/ui reutilizáveis
+  hooks/                   # hooks utilitários (scroll reveal, mobile, toast)
+  assets/                  # imagens do site e logos de parceiros
+```
